@@ -8,7 +8,15 @@ public class Dato implements Comparable<Dato>
 
     public Dato(int dag, int mnd, int år)        // konstruktør
     {
-        this.dag = dag; this.mnd = mnd; this.år = år;
+        this.dag = dag;
+        this.mnd = mnd;
+        this.år = år;
+    }
+
+    public Dato(int dag, Måned måned, int år){
+        this.dag = dag;
+        mnd = måned.mndnr();
+        this.år = år;
     }
 
     public int compareTo(Dato d)                 // compareTo
@@ -31,16 +39,23 @@ public class Dato implements Comparable<Dato>
     public boolean equals(Dato d){
         return år == d.år && mnd == d.mnd && dag == d.dag;
     }
-
+@Override
     public String toString()                     // toString
     {
-        return "" + dag + '/' + mnd + '-' + år;
+        StringBuilder s = new StringBuilder();
+        s.append(dag).append('.').append(' ').
+                append(Måned.toString(mnd)).append(' ').append(år);
+        return s.toString();
     }
-/*
+@Override
     public int hashCode()
     {
-        return Objects.hash(dag,mnd,år);
+        int hash = 3;
+        hash = 89 * hash + dag;
+        hash = 89 * hash + mnd;
+        hash = 89 * hash + år;
+        return hash;
     }
-    */
+
 
 } // class Dato

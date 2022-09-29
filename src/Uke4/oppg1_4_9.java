@@ -1,6 +1,7 @@
 package Uke4;
 
 import eksempelklasser.Dato;
+import eksempelklasser.Tid;
 import hjelpeklasser.Tabell;
 
 import java.awt.*;
@@ -48,17 +49,20 @@ public class oppg1_4_9 {
 
 
     d)
-
+    Lagt til en equals metode i Dato klassen
 
     e)
+    Testet å fjerne hashkode, men fikk ingen gul knapp eller feil
 
     f)
-
+    Lagt inn ekstra konstruktør i Dato klassen som tar inn Måned klassen som parameter
 
     Oppgave 5
+    Laget klasse klokkeslett
 
 
     Oppgave 6
+    Måtte se fasit
 
 
      */
@@ -87,7 +91,7 @@ public class oppg1_4_9 {
         // Utskriften blir:
         // (3,3) (5,6) (6,3) (2,5) (6,5) (1,2) (4,1) (7,4) (7,2) (4,4)
         // (1,2) (2,5) (3,3) (4,1) (4,4) (5,6) (6,3) (6,5) (7,2) (7,4)
-*/
+
         Dato[] d = new Dato[5];           // en datotabell
         d[0] = new Dato(24,12,2014);      // 24/12-2014
         d[1] = new Dato(24,12,2012);      // 24/12-2012
@@ -99,7 +103,17 @@ public class oppg1_4_9 {
         for (Dato x : d) System.out.print(x + " ");
 
         // Utskrift: 24/12-2012 25/12-2012 9/12-2013 10/12-2013 24/12-2014
+*/
+        Tid[] tider = new Tid[4];
 
+        tider[0] = new Tid(24,12,2014,"15:30");
+        tider[1] = new Tid(24,12,2014,"12:00");
+        tider[2] = new Tid(23,12,2014,"12:00");
+        tider[3] = new Tid(23,12,2014,"09:00");
+
+        Tabell.innsettingssortering(tider);
+
+        for (Tid tid : tider) System.out.println(tid);
 
     }
 }
