@@ -20,14 +20,19 @@ public class oppg1_2_1 {
         return min(a, 0, a.length);
     }
     public static void main(String [] args){
-        int[]a={9,6,8,4,1,7,4,8};
+        int[]a={9,6,8,4,7,1,4,8};
 
-        System.out.println(min(a, 2, 7));
+        System.out.print("Minste indexen i arrayet er ");
         System.out.print(min2(a));
 
-    }
-    // Oppgave 5
+        // Oppgave 5
 
-    
+        int[] array = {1,3,8,5,3,9};
+
+        for (int i : array){
+            System.out.print(i + " ");
+        }
+    }
+
 }
 
