@@ -504,6 +504,26 @@ public class Tabell {
         return p;    // returnerer posisjonen til skilleverdien
     }
 
+    public static int parter0(int[] a, int v, int h, int skilleverdi)
+    {
+        while (true)                                  // stopper når v > h
+        {
+            while (v <= h && a[v] < skilleverdi) v++;   // h er stoppverdi for v
+            while (v <= h && a[h] >= skilleverdi) h--;  // v er stoppverdi for h
+
+            if (v < h) bytt(a,v++,h--);                 // bytter om a[v] og a[h]
+            else  return v;  // a[v] er nåden første som ikke er mindre enn skilleverdi
+        }
+    }
+
+    public static int sParter0(int[] a, int v, int h, int indeks)
+    {
+        bytt(a, indeks, h);           // skilleverdi a[indeks] flyttes bakerst
+        int pos = parter0(a, v, h - 1, a[h]);  // partisjonerer a[v:h - 1]
+        bytt(a, pos, h);              // bytter for å få skilleverdien på rett plass
+        return pos;                   // returnerer posisjonen til skilleverdien
+    }
+
     public static <T> int sParter(T[] a, int k, Comparator<? super T> c)   // bruker hele tabellen
     {
         return sParter(a,0,a.length-1,k,c); // v = 0 og h = a.lenght-1
@@ -553,4 +573,5 @@ public class Tabell {
         T[] b = Arrays.copyOf(a, a.length/2);
         flettesortering(a,b,0,a.length,c);  // kaller metoden over
     }
+
 }
